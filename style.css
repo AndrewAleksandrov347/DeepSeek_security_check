@@ -119,6 +119,10 @@ h2 {
   text-align: left;
 }
 
+.section p {
+  text-align: justify;
+}
+
 .section h3 {
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
