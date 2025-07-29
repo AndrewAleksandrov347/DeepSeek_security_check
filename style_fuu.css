@@ -8,6 +8,7 @@
   /* Увеличиваем максимальную ширину контейнера для уменьшения пустых полей */
   --max-width: 1200px;
   --spacing: 1rem;
+  --nav-width: 12rem;
   font-family: 'Inter', Arial, sans-serif;
 }
 
@@ -20,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-left: var(--nav-width);
 }
 
 main {
@@ -70,16 +72,29 @@ h2 {
 
 /* Навигация */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--nav-width);
   background-color: var(--color-muted);
-  padding: 0.5rem 1rem;
-  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__inner {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .navbar a {
-  margin: 0 0.5rem;
+  margin: 0 0 0.5rem 0;
   color: var(--color-primary);
   text-decoration: none;
-  display: inline-block;
+  display: block;
   transition: color 0.2s ease-in-out;
 }
 
