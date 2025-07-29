@@ -22,6 +22,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   padding-left: var(--nav-width);
+  /* Keep scrollbar space reserved so content doesn't shift horizontally */
+  overflow-y: scroll;
 }
 
 main {
