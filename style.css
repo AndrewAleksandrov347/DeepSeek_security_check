@@ -74,7 +74,14 @@ main {
 .navbar {
   background-color: var(--color-muted);
   padding: 0.5rem 1rem;
-  text-align: center;
+}
+
+.navbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .navbar a {
