@@ -1,0 +1,218 @@
+/* Основная цветовая палитра */
+:root {
+  --color-background: #ffffff;
+  --color-primary: #030a18; /* near black navy */
+  --color-secondary: #97b1df; /* greyish blue */
+  --color-accent: #a4b6b8; /* light green grey */
+  --color-muted: #f5f5f5;
+  /* Увеличиваем максимальную ширину контейнера для уменьшения пустых полей */
+  --max-width: 1200px;
+  --spacing: 1rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  /* увеличиваем внутренние отступы основного контента по вертикали */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background-size: cover;
+  /* уменьшаем вертикальные отступы в шапке, чтобы блок занимал меньше высоты */
+  padding: 3rem 1rem;
+  text-align: left;
+  color: var(--color-background);
+}
+
+.hero h1,
+.hero h2 {
+  color: var(--color-background);
+}
+
+.hero__content {
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.hero__meta {
+  color: var(--color-background);
+  font-size: 0.9rem;
+}
+
+/* Навигация */
+.navbar {
+  background-color: var(--color-muted);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.navbar a {
+  margin: 0 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+/* Секции с содержанием */
+.section {
+  /* сокращаем вертикальные отступы секций для уменьшения пустых областей */
+  margin: 1rem 0;
+}
+
+.section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.section h4 {
+  font-size: 1.3rem;
+  margin: 0.8rem 0 0.4rem;
+  color: var(--color-primary);
+}
+
+.section ul {
+  padding-left: 1.2rem;
+}
+
+.section ul li {
+  margin-bottom: 0.3rem;
+}
+
+/* Текст оценки */
+.score {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: var(--color-secondary);
+}
+
+/* Стили колонок для сравнительных секций */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1 1 48%;
+  box-sizing: border-box;
+  padding-right: 2%;
+  /* добавляем нижний отступ для избежания схлопывания колонок */
+  margin-bottom: 1rem;
+}
+
+.column:last-child {
+  padding-right: 0;
+}
+
+/* Диаграмма */
+.chart-column {
+  width: 48%;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+
+/* Навигационные кнопки между слайдами */
+.slide-nav {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: var(--color-primary);
+}
+
+footer {
+  background-color: var(--color-muted);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}
+
+/* Кастомные маркеры для списков */
+.section ul li::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+  .slide-nav {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+  .nav-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
