@@ -73,6 +73,7 @@ main {
   color: var(--color-primary);
   text-decoration: none;
   display: inline-block;
+  transition: color 0.2s ease-in-out;
 }
 
 .navbar a:hover {
