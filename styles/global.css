@@ -32,6 +32,9 @@ body {
 
 main {
   flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 /* Общий контейнер для выравнивания контента */
