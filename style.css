@@ -89,21 +89,19 @@ main {
 }
 
 /* Стили колонок для сравнительных секций */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .column {
-  float: left;
-  width: 48%;
+  flex: 1 1 48%;
   box-sizing: border-box;
   padding-right: 2%;
 }
 
 .column:last-child {
   padding-right: 0;
-}
-
-.section::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /* Диаграмма */
@@ -124,4 +122,10 @@ footer {
   margin: 0;
   font-size: 0.8rem;
   color: var(--color-secondary);
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
 }
