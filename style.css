@@ -112,6 +112,7 @@ main {
 
 .section {
   margin: 2rem 0;
+  text-align: left;
 }
 
 .section h3 {
