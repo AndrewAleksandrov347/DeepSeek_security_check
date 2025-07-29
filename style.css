@@ -21,6 +21,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   padding-left: var(--nav-width);
+  /* Ensure consistent layout when switching between pages
+     regardless of overall page height */
+  overflow-y: scroll;
 }
 
 main {
