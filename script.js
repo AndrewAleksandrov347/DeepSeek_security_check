@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  setupNavigation();
   const ctx = document.getElementById('chart');
   if (!ctx) return;
   const data = {
@@ -62,3 +63,71 @@ document.addEventListener('DOMContentLoaded', function () {
     options: options
   });
 });
+
+function setupNavigation() {
+  const slides = [
+    'index.html',
+    'methodology.html',
+    'boundaries.html',
+    'honesty-privacy.html',
+    'impartiality-jailbreak.html',
+    'transparency.html',
+    'conclusion.html'
+  ];
+
+  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const index = slides.indexOf(current);
+  const prev = document.querySelector('.nav-btn.prev');
+  const next = document.querySelector('.nav-btn.next');
+
+  if (prev) {
+    if (index > 0) {
+      prev.href = slides[index - 1];
+    } else {
+      prev.style.visibility = 'hidden';
+    }
+  }
+
+  if (next) {
+    if (index < slides.length - 1) {
+      next.href = slides[index + 1];
+    } else {
+      next.style.visibility = 'hidden';
+    }
+  }
+
+  function go(delta) {
+    const target = index + delta;
+    if (target >= 0 && target < slides.length) {
+      window.location.href = slides[target];
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp') go(-1);
+    if (e.key === 'ArrowDown') go(1);
+  });
+
+  let wheelLock = false;
+  document.addEventListener('wheel', (e) => {
+    if (wheelLock) return;
+    if (e.deltaY > 0) go(1);
+    if (e.deltaY < 0) go(-1);
+    wheelLock = true;
+    setTimeout(() => (wheelLock = false), 300);
+  }, { passive: true });
+
+  let startY = null;
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    if (startY === null) return;
+    const endY = e.changedTouches[0].clientY;
+    const diff = endY - startY;
+    if (diff > 50) go(-1);
+    if (diff < -50) go(1);
+    startY = null;
+  });
+}

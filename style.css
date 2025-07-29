@@ -16,6 +16,13 @@ body {
   color: var(--color-primary);
   font-size: 16px;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .hero {
@@ -138,6 +145,35 @@ main {
   box-sizing: border-box;
 }
 
+/* Навигационные кнопки между слайдами */
+.slide-nav {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: var(--color-primary);
+}
+
 footer {
   background-color: var(--color-muted);
   padding: 1rem;
@@ -154,5 +190,14 @@ footer {
 @media (max-width: 600px) {
   .columns {
     flex-direction: column;
+  }
+  .slide-nav {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+  .nav-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
 }
