@@ -43,6 +43,9 @@ main {
 .hero__content {
   margin: 0 auto;
   max-width: var(--max-width);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
 h1 {
@@ -80,7 +83,7 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
